@@ -18,11 +18,33 @@ body {
 #boneco {
     
     position: absolute;
-    top: 50px;
+    top: 100vh;
     left: 50px;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     
 
     background-color: red;
+}
+
+#plataforma_1{
+    position: absolute;
+    top: 92vh;
+    left: 400px;
+    height: 60px;
+    width: 200px;
+    
+
+    background-color: blue;
+}
+
+#plataforma_2{
+    position: absolute;
+    top: 75vh;
+    left: 700px;
+    height: 60px;
+    width: 200px;
+    
+
+    background-color: blue;
 }

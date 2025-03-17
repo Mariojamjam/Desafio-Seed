@@ -1,13 +1,13 @@
 let boneco = document.querySelector("#boneco")
 let tela = document.querySelector("#tela_1")
+let plataformas = document.querySelectorAll(".plataformas")
 
 let velocidade_x = 0
 let velocidade_y = 0
 let gravidade = 1
-let velocidadeMAX = 10
+let velocidadeMAX = 20
 let noChao = false
-let tamanho_pulo = -15
-
+let tamanho_pulo = -25
 let movimento_distancia = 5
 
 let teclas_pressionadas = {}
@@ -58,7 +58,59 @@ function movimento(){
         novaPosX = tela.offsetWidth - boneco.offsetWidth
     }
 
-    if (novaPosY + boneco.offsetHeight >= tela.offsetHeight){
+    noChao=false
+    plataformas.forEach((plataformas) => {
+        let plataformas_pos = plataformas.getBoundingClientRect()
+        if (
+            boneco_pos.bottom + velocidade_y >= plataformas_pos.top &&
+            boneco_pos.top < plataformas_pos.top &&
+            boneco_pos.right > plataformas_pos.left &&
+            boneco_pos.left < plataformas_pos.right
+        )
+            
+            {
+            novaPosY = plataformas_pos.top - ((plataformas_pos.bottom - plataformas_pos.top)+13)
+            noChao = true
+            velocidade_y=0
+            }
+
+        if (
+            velocidade_y <0 &&
+            boneco_pos.top + velocidade_y <= plataformas_pos.bottom &&
+            boneco_pos.bottom > plataformas_pos.bottom &&
+            boneco_pos.right > plataformas_pos.left &&
+            boneco_pos.left < plataformas_pos.right
+        )
+            
+            {
+            novaPosY = plataformas_pos.bottom
+            velocidade_y=0
+
+            }
+
+        if(boneco_pos.right +velocidade_x >= plataformas_pos.left&&
+            boneco_pos.bottom > plataformas_pos.top +8&&
+            boneco_pos.top < plataformas_pos.bottom -8&&
+            boneco_pos.left < plataformas_pos.left
+        ){
+            novaPosX = plataformas_pos.left- (boneco_pos.right - boneco_pos.left)
+            velocidade_x =0
+
+        }
+
+        if(boneco_pos.left +velocidade_x <= plataformas_pos.right&&
+            boneco_pos.bottom > plataformas_pos.top+8&&
+            boneco_pos.top < plataformas_pos.bottom -8&&
+            boneco_pos.right > plataformas_pos.right
+        ){
+            novaPosX = plataformas_pos.right
+            velocidade_x =0
+
+        }
+    
+    })
+
+    if (novaPosY + boneco.offsetHeight > tela.offsetHeight){
         novaPosY = tela.offsetHeight - boneco.offsetHeight
         noChao = true
         velocidade_y = 0
