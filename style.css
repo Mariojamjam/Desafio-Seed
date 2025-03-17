@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 15vh;
+}
+
+
+
+.tela{
+    position: relative;
+    width: 100vw;
+    height: 50vw;
+    background-color:antiquewhite
+}
+
+#boneco {
+    
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 100px;
+    width: 100px;
+    
+
+    background-color: red;
+}
