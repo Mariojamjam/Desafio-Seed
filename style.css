@@ -29,9 +29,9 @@ body {
 
 #plataforma_1{
     position: absolute;
-    top: 92vh;
+    top: 93vh;
     left: 400px;
-    height: 60px;
+    height: 70px;
     width: 200px;
     
 
@@ -42,9 +42,21 @@ body {
     position: absolute;
     top: 75vh;
     left: 700px;
-    height: 60px;
-    width: 200px;
+    height: 90px;
+    width: 300px;
     
 
     background-color: blue;
+}
+
+#inimigo_1{
+    display: block;
+    position: absolute;
+    top: 92.3vh;
+    left: 1100px;
+    height: 80px;
+    width: 80px;
+    
+
+    background-color: green;
 }
